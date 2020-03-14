@@ -1,0 +1,9 @@
+mvn quarkus:dev
+
+#add extension
+mvn quarkus:add-extension -Dextensions="jdbc-postgresql"
+mvn quarkus:add-extension -Dextensions="spring-web"
+
+mvn quarkus:add-extension -Dextensions="spring-data-jpa,resteasy-jsonb"
+34.70.14.89
+201.207.239.73
