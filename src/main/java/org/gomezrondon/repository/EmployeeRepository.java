@@ -1,12 +1,16 @@
 package org.gomezrondon.repository;
 
 import org.gomezrondon.entitie.Employee;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
-/*    List<Employee> findAllByFirstName(String firstName);
-    List<Employee> findAllByLastName(String lastName);*/
+    @Query(value="from Employee e where e.lastName = ?1")
+    List<Employee> findByLastName(String lastName);
+
+    // List<Employee> findAllByFirstName(String firstName); // no funciona
+
 }

@@ -5,6 +5,8 @@ import org.gomezrondon.entitie.Employee;
 import org.gomezrondon.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -21,7 +23,6 @@ public class EndpointController {
 
     @GetMapping("/time")
     public String forTesting() {
-        Employee employee = new Employee("javier", "gomez");
         String time = LocalDateTime.now().toString();
         return time;
     }
@@ -32,21 +33,17 @@ public class EndpointController {
         return list;
     }
 
-/*    @GetMapping("/employees")
+    @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
         List<Employee> list = service.getAllEmployees();
         return list;
     }
 
-
-
     @PutMapping("/employees")
     public Employee saveEmployee(@RequestBody Employee employee){
         Employee save = service.save(new Employee(employee.getFirstName(),employee.getLastName()));
         return save;
-    }*/
-
-
+    }
 
 
 }

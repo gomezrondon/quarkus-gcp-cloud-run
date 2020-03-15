@@ -1,12 +1,9 @@
 package org.gomezrondon.service;
 
-
-
 import org.gomezrondon.entitie.Employee;
 import org.gomezrondon.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -20,20 +17,18 @@ public class EmployeeServiceImp implements  EmployeeService{
     }
 
     public List<Employee> getAllEmployees() {
-        return repository.findAll();
+        return (List<Employee>) repository.findAll();
     }
 
     public Employee save(Employee employee){
-      //  repository.save(employee);
         Employee save = repository.save(employee);
 
         return save;
     }
 
     public List<Employee> findByLasName(String name) {
-      // List<Employee> empl = repository.findAllByLastName(name);
-
-        return Arrays.asList(repository.getOne(5l)) ;
+        List<Employee> empl = repository.findByLastName(name);
+        return empl ;
     }
 
 }
